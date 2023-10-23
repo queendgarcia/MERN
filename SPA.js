@@ -53,6 +53,3 @@
 // multiple variables, types, classes, high-level enumerators, etc.
 
 // example: arrow function
-
-let add = (a,b) => a+b
-console.log(add(5,6))
