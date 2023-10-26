@@ -21,14 +21,17 @@ var FuncExps = function(a,b) {
   console.log(a+b);
 }
 
-FuncExps(9,10);
+FuncExps(); // this will get undefined if no parameters passed
+// FuncExps(9,10);
 
 // 3. Singleton Function or IIFE
 //    -- immediately invocaable function expression
 
 (function IIFE(params) {
   console.log(params)
-})("Gauri");
+})("Test");
+
+// for 1 specific usage only
 
 // IIFE("hello"); 
 // will throw an error, can't be accessed second time
@@ -49,3 +52,7 @@ var user = new funcConstructor("a", 17, "US");
 console.log(user.getUserDetails());
 
 // do practice each type by writing your own
+
+// HOISTING 
+// function hoisting -- needs complete definition
+// variable hoisting -- gives undefined as it expects that it will get declared
