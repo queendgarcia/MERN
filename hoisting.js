@@ -29,3 +29,9 @@ var var4 = 4
 var var1 = 5
 
 // note: Hoisting makes all these possible for function declarations. But, it's also worth noting that hoisting does not occur on function expressions.
+
+// Every function that is written needs to be hoisted.
+
+// Type casting is dynamic here; hence, params are not explicitly declared
+
+// In that way, JS keeps track of the last declaration as it clears the same-named function -- as it practices overwriting, not overloading
