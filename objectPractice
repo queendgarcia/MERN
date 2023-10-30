@@ -1,0 +1,64 @@
+//Create an object with name Person and have some properties in it
+// inherit person object to create new object Student - this should have two properties additional and one method
+// create one object Jobs - (JobTitle, Salary, Location) and one object Student with salary
+// Merge person and Salary so that Salary comes from Jobs Object
+// Create a null - prototype object
+
+
+var Person = {
+  Name: "AA",
+  Age: 22,
+  Email: "aa@gmail.com",
+  getDetails: function(){
+    return {
+      Name: this.Name,
+      Age: this.Age
+    }
+  }
+}
+ 
+console.log(Person);
+// Inherit person object to create new object -- this should have two properties additional and one method
+
+var Student = new Object(Person);
+Student.School = "ABC University";
+Student.Program = "BSECE";
+
+Student.getProgram = function() {
+  return { 
+    School: this.School, 
+    Program: this.Program
+  }
+}
+
+console.log(Student);
+// create one object Jobs - (JobTitle, Salary, Location) and one object Student with salary
+
+var Job = {
+  Title: "ECE",
+  Salary: 5000,
+  Location: "USA"
+}
+
+var Student2 = {
+  Name: "BB",
+  School: "ABC University",
+  Salary: 7000
+}
+
+// Merge person and Salary so that Salary comes from Jobs Object
+
+var personWithJob = {}
+var personWithJob = Object.assign(personWithJob, Job, Person);
+
+console.log(personWithJob);
+console.log(personWithJob.getDetails());
+console.log(personWithJob.getProgram());
+
+// Create a null - prototype object
+
+var nullObject = Object.create(null);
+
+console.log(nullObject);
+
+
