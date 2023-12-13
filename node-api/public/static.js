@@ -1,0 +1,1 @@
+alert("This Alert is loaded with index.html");

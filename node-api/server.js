@@ -8,7 +8,30 @@ const app = express();
 // app.get, app.put, app.post, app.patch, app.delete
 // app.all --> any kind of request can be served through this
 
-app.get('/', function(req,res) {
+// note: we can run multiple applications by delegating some requests to a specific application
+
+const adminApp = express(); // create to load teh request for admin/backend work
+
+const adminRoutes = require("./router/admin-route");
+
+// -------- Middleware --------
+// setting up the middleware static to handle all the static files that are needed to be served to client
+
+// serve static files like images, css, etc. using static middleware <<search more about middleware>>
+
+app.use('/static', express.static('public')); // localhost:3000/static/alert.js
+
+// this will contain all the requests that is related in the admin ((moved to router folder))
+// app.use('/admin', adminApp);
+// adminApp.get('/hello', (req,res) => {
+//   res.send("Hello World! from adminApp");
+// })
+
+// router folder is needed to group the requests
+app.use('/admin', adminApp);
+adminApp.use("/", adminRoutes);
+
+app.get('/hello', function(req,res) {
   res.send('Hello World');
 });
 
@@ -52,13 +75,26 @@ app.get('/routeParam/:id', (req,res) => {
 
 // sendFile function to redirect to a whole HTML page
 app.get('/file', function (req, res) {
-  res.sendFile(__dirname+"/index.html")
+  res.sendFile(__dirname+"/public/index.html")
+});
+
+// since js has a different path to load
+// adding such files in API causes tedious task especially if there are several files; hence, middleware is used for this problem ((check notes above: --Middleware--))
+app.get('/static.js', function (req, res) {
+  res.sendFile(__dirname+"/public/static.js")
 });
 
 // DEFAULT or WILDCARD OPERATOR to serve request for any request/path
-app.get('*', function(req,res) {
-  res.send("<h1>API is not ready yet</h1>")
-});
+// app.get('*', function(req,res) {
+//   res.send("<h1>API is not ready yet</h1>")
+// });
+
+// check correct codes for this
+// console.log(req.rawHeaders);
+// let deviceType = req.rawHeaders.indexOf("Android") >= 1 ? "Is Android" : "Desktop";
+// console.log(deviceType);
+
+// res.send("<h1>Device Type is " + deviceType + "</h1>");
 
 // port
 app.listen(3000);
