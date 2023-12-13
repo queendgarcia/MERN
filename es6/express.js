@@ -53,3 +53,43 @@
 
 
 // nodemon - is used as monitoring tool to check updates in file and restarts
+
+// devDependencies are dependencies used only in the development and not in production
+// "devDependencies": {
+//     "nodemon": "^3.0.2"
+//   }
+
+// npm i <pkg name> -D {installs the package as devDependency} 
+    
+// for purpose of saving space as the devDependency will not be installed in the production and will only be used for programming purposes
+
+// --------- package.json vs package-lock.json -----------
+
+// package.json --> meta data, information about the project that is being created
+// package-lock.json --> more detailed information on the exact versions of dependencies
+
+// note: whatever module is needed for the project, it must be installed specifically on that project and note rely on the inner dependency of your current dependencies (e.g., body-parser must still be installed even if it is used in express)
+
+// ** package. json file focuses on project metadata and specifying the desired versions of dependencies
+// ** package-lock. json file ensures deterministic installations by locking the exact versions of dependencies and their dependencies
+
+// Without package.lock.json, there might be some differences in installed versions in different environments. To overcome this problem, package.lock.json is created to have the same results in every environment
+
+// node_modules --> holds all the dependency modules that may be used in the project
+
+// ------- EXPRESS.JS --------
+// Minimalist web framework for Node.js
+// Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications
+
+// Features of Express JS
+// 1. Allows to set up middlewares to respond to HTTP Requests
+// 2. Defines a routing table which is used to perform different actions based on HTTP Method and URL
+// 3. Allows dynamic rendering of HTML Pages based on passing arguments to templates
+
+// Entities of Express JS
+// express() - METHODS
+// 1. Application
+// 2. Request
+// 3. Response
+// 4. Router
+
