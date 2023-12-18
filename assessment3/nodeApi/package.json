@@ -1,0 +1,18 @@
+{
+  "name": "nodeapi",
+  "version": "1.0.0",
+  "description": "Create a setup for Express Web Server",
+  "main": "express.js",
+  "scripts": {
+    "start": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "QG",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
