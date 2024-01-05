@@ -1,6 +1,12 @@
 import React, {Component} from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+// BrowserRouter -> will be used as Router, Routes to encapsulate route, Route to create one entry, Navigate to create hyperlink 
+import "./app.css";
 import HeaderComponent from "./Common/HeaderComponent";
 import Footer from "./Common/FooterComponent";
+import NotFound from "./Common/NotFoundComponent";
+import Home from "./Common/HomeComponent";
+import About from "./Common/AboutComponent";
 
 // class component
 export default class ApplicationComponent extends Component {
@@ -15,15 +21,6 @@ export default class ApplicationComponent extends Component {
     }
   }
 
-  changeNameEvent = () => {
-    // alert("Name will be updated!!!!")
-
-    this.setState({
-      name: "Name 2",
-      header : "20,001+ employees· For backend dev!!!",
-    })
-  }
-
   // get data from child component using callback function
   getChildData = (data) => {
     // alert(data);
@@ -34,37 +31,18 @@ export default class ApplicationComponent extends Component {
 
   // this method returns virtual DOM every change of state using this.setState
   render() { 
-    // life cycle method of React.Component base class, generated virtual DOM on state change
-    let a = 10, b = 5;
-    // let header = "10,001+ employees · UI Specialist"
     return (
       <>
-        <HeaderComponent header={this.state.header} name={this.state.name} getChildData={this.getChildData}/>
-        {/* perform operation inside curly braces */}
-        <b>The Arithmetic Operation {a+b} {a*b} {a-b} {a/b}</b>
-        <h1>This is the Application Component</h1>
-        <button onClick={this.changeNameEvent}>Change Name</button>
-        <Footer>
-          <h3>Keep Shopping with us</h3>
-          <h3>Discount on each purchase</h3>
-        </Footer>
+        <Router>
+          <HeaderComponent header={this.state.header} name={this.state.name} getChildData={this.getChildData} />
+          <Routes>
+            <Route path="/" element={<Home user={"User"} userName={"Name 1"} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+        <Footer />
       </>
     )
   }
 }
-
-//functional component
-// let ApplicationComponent = ()=>{
-//     let a = 10, b = 5;
-//     let header = "10,001+ employees · UI Specialist"
-//     return(
-//         <>
-//             <HeaderComponent/>
-//             <b>The Arithmatic Operation {a+b} {a*b} {a-b} {a/b}</b>
-//             <h1>This is the Application Component</h1>
-//             <h1>{header}</h1>
-//         </>
-//     )
-// }
-
-// export default ApplicationComponent
