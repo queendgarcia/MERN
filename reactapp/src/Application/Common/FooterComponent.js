@@ -11,7 +11,9 @@ let Footer = (props) => {
   return ( // JSX -> Javascript-like XML structure
     <>
       <div className="footer">
-        © Copyright 2023 All rights reserved. &nbsp;|&nbsp; <a href="https://www.synergisticit.com/" target="_blank">SynergisticIT</a> &nbsp;|&nbsp; <a href="http://www.synergisticit.com/sitemap.xml" target="_blank">Sitemap</a>
+        © Copyright 2023 All rights reserved. &nbsp;|&nbsp; 
+        <a href="https://www.synergisticit.com/" target="_blank">SynergisticIT</a> &nbsp;|&nbsp; 
+        <a href="http://www.synergisticit.com/sitemap.xml" target="_blank">Sitemap</a>
       </div>
       {/* <h2>Footer Component</h2>
       {props.children[0]}

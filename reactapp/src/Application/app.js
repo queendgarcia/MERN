@@ -36,7 +36,7 @@ export default class ApplicationComponent extends Component {
         <Router>
           <HeaderComponent header={this.state.header} name={this.state.name} getChildData={this.getChildData} />
           <Routes>
-            <Route path="/" element={<Home user={"User"} userName={"Name 1"} />} />
+            <Route path="/home" element={<Home userName={"Name 1"} />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
