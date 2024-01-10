@@ -60,3 +60,7 @@
 
 // DEFINING ROUTES
 
+
+// REDUX 
+// react-redux library -> needed to pass the store in the React Application as a property
+// axios --> a library which helps to make AJAX calls to the server 
