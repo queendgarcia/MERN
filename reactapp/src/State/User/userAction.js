@@ -8,3 +8,5 @@ export const AddUserToStore = (newUser)=>{
         payload : newUser
     }
 }
+
+// server call

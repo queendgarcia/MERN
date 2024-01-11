@@ -4,7 +4,7 @@ const Initial_State = {
   User: {
     userName: "userName from userReducer",
     password: "",
-    street: "New York",
+    street: "California",
     mobile: 0
   }
 }
