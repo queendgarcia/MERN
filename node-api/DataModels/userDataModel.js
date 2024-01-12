@@ -19,10 +19,14 @@ schemaObj = mongooseObj.Schema; //using the schema class from mongoose
 mongooseObj.connect("mongodb://127.0.0.1/mernstack17"); 
 
 let userSchema = new schemaObj({
+  // _id --> can be explicitly declared - if not, it will automatically be provided
   userName : {type: String, required : true},
   password: {type:String, required : true},
   street: String,
   mobile: Number
+},
+{
+  versionKey: false //false - set to false then it wont create in mongodb
 })
 
 let UserModel = mongooseObj.model("user", userSchema); 

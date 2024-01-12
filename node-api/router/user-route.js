@@ -20,6 +20,7 @@ userRoute.post("/api/signinup", (req, res)=>{
 
       newUser.save().then((newUser) => {
         console.log("Successful Sign-up", newUser);
+        // will get _id once document is created
         res.send(newUser);
       }).catch((err1) => {
         console.log("Error signing-up", err1);
