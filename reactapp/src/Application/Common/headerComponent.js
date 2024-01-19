@@ -12,6 +12,7 @@ let HeaderComponent = (props) => {
       {userName == "" ?<b> Please Login to see other features</b>:""}
       <div>
         <NavLink to="/home" className="button" activeclassname="success" >Home </NavLink>
+        <NavLink to="/hook" className="button" activeclassname="success" >UserHook </NavLink>
         <NavLink to="/user" className="button" activeclassname="success" >Login</NavLink>
         <NavLink to="/about" className="button" activeclassname="success" >About </NavLink>
       </div>
