@@ -10,6 +10,6 @@ let productSchema = new schemaObj({
   rating: String
 })
 
-let productDataModelPractice = mongooseObj.model("product", productSchema);
+let productDataModelPractice = mongooseObj.model("productpractice", productSchema);
 
 module.exports = productDataModelPractice;

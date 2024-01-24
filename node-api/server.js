@@ -17,6 +17,9 @@ const studentRoutes = require("./router/student-route");
 const productAppPractice = express();
 const productRoutesPractice = require("./router/product-route-practice");
 
+const productApp = express() //created to load the request for admin/backend work
+const productRoutes = require("./router/product-route")
+
 app.use(cors()); // enabling cross-origin resource sharing at root level
 
 //setting up the middleware static to handle all the static files we need to serve to client
@@ -37,6 +40,9 @@ studentApp.use('/', studentRoutes)
 
 app.use('/productpractice', productAppPractice);
 productAppPractice.use('/', productRoutesPractice)
+
+app.use('/product', productApp)
+productApp.use('/',productRoutes)
 
 app.listen(9000)
 

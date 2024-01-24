@@ -11,6 +11,7 @@ import About from "./Common/AboutComponent";
 // from AppComponent
 // import UserComponent from "./AppComponent/User/UserComponent.jsx";
 import User from "./AppComponent/User/UserContainer";
+import ProductComponent from "./AppComponent/Product/ProductComponent";
 // import Student from "./AppComponent/Student/StudentContainer";
 
 import UserHook from "./AppComponent/User/UserHookComponent";
@@ -45,10 +46,11 @@ export default class ApplicationComponent extends Component {
           <HeaderComponent header={this.state.header} name={this.state.name} getChildData={this.getChildData} />
           <Routes>
             <Route path="/home" element={<Home userName={"Name 1"} />} />
-            <Route path="/user" element={<User />} />
+            <Route path="/product" element={<ProductComponent />} />
+            {/* <Route path="/user" element={<User />} /> */}
+            <Route path="/hook" element={<UserHook/>} />
             <Route path="/about" element={<About />} />
             {/* <Route path="/student" element={<Student  />} /> */}
-            <Route path="/hook" element={<UserHook/>} />
             <Route path="/product-practice" element={<ProductComponentPractice />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
