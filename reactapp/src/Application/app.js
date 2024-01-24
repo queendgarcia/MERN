@@ -14,6 +14,7 @@ import User from "./AppComponent/User/UserContainer";
 // import Student from "./AppComponent/Student/StudentContainer";
 
 import UserHook from "./AppComponent/User/UserHookComponent";
+import ProductComponentPractice from "./AppComponent/Product/ProductComponentPractice";
 
 // class component
 export default class ApplicationComponent extends Component {
@@ -48,6 +49,7 @@ export default class ApplicationComponent extends Component {
             <Route path="/about" element={<About />} />
             {/* <Route path="/student" element={<Student  />} /> */}
             <Route path="/hook" element={<UserHook/>} />
+            <Route path="/product-practice" element={<ProductComponentPractice />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>

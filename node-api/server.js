@@ -14,6 +14,9 @@ const userRoutes = require("./router/user-route")
 const studentApp = express();
 const studentRoutes = require("./router/student-route");
 
+const productAppPractice = express();
+const productRoutesPractice = require("./router/product-route-practice");
+
 app.use(cors()); // enabling cross-origin resource sharing at root level
 
 //setting up the middleware static to handle all the static files we need to serve to client
@@ -32,6 +35,9 @@ userApp.use('/',userRoutes)
 app.use('/student', studentApp);
 studentApp.use('/', studentRoutes)
 
+app.use('/productpractice', productAppPractice);
+productAppPractice.use('/', productRoutesPractice)
+
 app.listen(9000)
 
-console.log("API is ruuning at http://localhost:9000")
+console.log("API is running at http://localhost:9000")
