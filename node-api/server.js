@@ -20,6 +20,9 @@ const productRoutesPractice = require("./router/product-route-practice");
 const productApp = express() //created to load the request for admin/backend work
 const productRoutes = require("./router/product-route")
 
+const cartAppPractice = express() 
+const cartRoutesPractice = require("./router/cart-route-practice")
+
 app.use(cors()); // enabling cross-origin resource sharing at root level
 
 //setting up the middleware static to handle all the static files we need to serve to client
@@ -43,6 +46,9 @@ productAppPractice.use('/', productRoutesPractice)
 
 app.use('/product', productApp)
 productApp.use('/',productRoutes)
+
+app.use('/cartpractice', cartAppPractice)
+cartAppPractice.use('/',cartRoutesPractice)
 
 app.listen(9000)
 

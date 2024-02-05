@@ -7,11 +7,14 @@ import UserReducer from "./User/userReducer";
 import StudentReducer from "./Student/studentReducer"
 import ProductReducer from "./Product/productReducer";
 
+import CartReducerPractice from "./CartPractice/cartReducer";
+
 // combineReducers --> used to combine all the reducers we need in our store/state
 const rootReducer = combineReducers({
   UserReducer,
   StudentReducer,
-  ProductReducer
+  ProductReducer,
+  CartReducerPractice
   // UserReducer : UserReducer  // state.UserReducer.User.userName
 })
 

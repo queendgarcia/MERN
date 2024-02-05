@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../../../State/Product/productAction";
 import ProductItemComponent from "./ProductItemDisplay";
 
+import {addItemToCart} from "../../../State/CartPractice/cartAction.js";
+
 let DisplayProducts = ()=>{
 
   let products = useSelector((state)=>state.ProductReducer.Products)
@@ -14,12 +16,21 @@ let DisplayProducts = ()=>{
     products && products.length == 0 ? dispatchToFetchProduct(fetchProducts()) : []
   },[])
 
+  let itemsInCart = useSelector((state) => state.CartReducerPractice.CartItems)
+  let dispatchAction = useDispatch();
+
+  let addItemToCartFnc = (product) => {
+    console.log(product);
+    dispatchAction(addItemToCart(product));
+  }
+  console.log(`itemsInCart: ${JSON.stringify(itemsInCart)}`);
+
   return(
     <>
       {
         products && products.length > 0 ?
         products.map((productItem)=>{
-          return <ProductItemComponent product={productItem} _id={productItem._id} />
+          return <ProductItemComponent addItemToCartFnc={addItemToCartFnc} product={productItem} _id={productItem._id} />
         })
         : <h4>No Products To Display</h4>
       }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-let ProductItemComponent = ({product})=>{
+let ProductItemComponent = ({addItemToCartFnc,product})=>{
 
   let [showHide, toggleShowHide] = useState(false)
 
@@ -14,7 +14,8 @@ let ProductItemComponent = ({product})=>{
         <li>{product.desc}</li>
         <li>{product.rating}</li> 
 
-        <button onClick={()=>console.log("Test")}>Add To Cart</button> 
+        {/* <button onClick={()=>console.log("Test")}>Add To Cart</button>  */}
+        <button onClick={() => addItemToCartFnc(product)}>Add To Cart</button> 
       </ul>
       : 
       <></>

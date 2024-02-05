@@ -15,8 +15,10 @@ import ProductComponent from "./AppComponent/Product/ProductComponent";
 // import Student from "./AppComponent/Student/StudentContainer";
 
 import UserHook from "./AppComponent/User/UserHookComponent";
-import ProductComponentPractice from "./AppComponent/Product/ProductComponentPractice";
+// import ProductComponentPractice from "./AppComponent/Product/ProductComponentPractice";
 
+import CartComponentPractice from "./AppComponent/Cart/CartComponentPractice";
+import CheckoutComponentPractice from "./AppComponent/Checkout/CheckoutComponentPractice";
 // class component
 export default class ApplicationComponent extends Component {
   // props - is used to pass information from parent to child component
@@ -51,7 +53,9 @@ export default class ApplicationComponent extends Component {
             <Route path="/hook" element={<UserHook/>} />
             <Route path="/about" element={<About />} />
             {/* <Route path="/student" element={<Student  />} /> */}
-            <Route path="/product-practice" element={<ProductComponentPractice />} />
+            {/* <Route path="/product-practice" element={<ProductComponentPractice />} /> */}
+            <Route path="/cart" element={<CartComponentPractice />} />
+            <Route path="/checkout" element={<CheckoutComponentPractice />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
