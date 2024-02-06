@@ -1,6 +1,8 @@
 //we will define actions to be used by action creator and dispatchers to dispatch to store
 import * as ActionTypes from "../actionTypes";
 import axios from "axios";
+import { getUserCart } from "../Cart/cartAction";
+
 //call back function to define type and payload to be used in reducer
 export const AddUserToStore = (newUser)=>{
 	return {
@@ -19,6 +21,7 @@ export const SaveUserToDB = (newUser)=>{
 			let signedUser = savedUser.data;
 			console.log(signedUser)
 			dispatch(AddUserToStore(signedUser))
+			dispatch(getUserCart(signedUser._id))
 		})
 		.catch((err)=>{
 			console.log(err)

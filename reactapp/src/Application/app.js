@@ -12,13 +12,14 @@ import About from "./Common/AboutComponent";
 // import UserComponent from "./AppComponent/User/UserComponent.jsx";
 import User from "./AppComponent/User/UserContainer";
 import ProductComponent from "./AppComponent/Product/ProductComponent";
-// import Student from "./AppComponent/Student/StudentContainer";
 
 import UserHook from "./AppComponent/User/UserHookComponent";
-// import ProductComponentPractice from "./AppComponent/Product/ProductComponentPractice";
+import CartComponent from "./AppComponent/Cart/CartComponent";
 
-import CartComponentPractice from "./AppComponent/Cart/CartComponentPractice";
-import CheckoutComponentPractice from "./AppComponent/Checkout/CheckoutComponentPractice";
+// import Student from "./AppComponent/Student/StudentContainer";
+// import ProductComponentPractice from "./AppComponent/Product/ProductComponentPractice";
+// import CartComponentPractice from "./AppComponent/Cart/CartComponentPractice";
+import CheckoutComponent from "./AppComponent/Checkout/CheckoutComponent";
 // class component
 export default class ApplicationComponent extends Component {
   // props - is used to pass information from parent to child component
@@ -52,11 +53,12 @@ export default class ApplicationComponent extends Component {
             {/* <Route path="/user" element={<User />} /> */}
             <Route path="/hook" element={<UserHook/>} />
             <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/cart" element={<CartComponent/>} />
             {/* <Route path="/student" element={<Student  />} /> */}
             {/* <Route path="/product-practice" element={<ProductComponentPractice />} /> */}
-            <Route path="/cart" element={<CartComponentPractice />} />
-            <Route path="/checkout" element={<CheckoutComponentPractice />} />
-            <Route path="*" element={<NotFound />} />
+            {/* <Route path="/cart" element={<CartComponentPractice />} /> */}
+            <Route path="/checkout" element={<CheckoutComponent />} />
           </Routes>
         </Router>
         <Footer />

@@ -6,6 +6,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import UserReducer from "./User/userReducer";
 import StudentReducer from "./Student/studentReducer"
 import ProductReducer from "./Product/productReducer";
+import CartReducer from "./Cart/cartReducer";
 
 import CartReducerPractice from "./CartPractice/cartReducer";
 
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   UserReducer,
   StudentReducer,
   ProductReducer,
-  CartReducerPractice
+  CartReducer
+  // CartReducerPractice
   // UserReducer : UserReducer  // state.UserReducer.User.userName
 })
 

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../../../State/Product/productAction";
 import ProductItemComponent from "./ProductItemDisplay";
 
-import {addItemToCart} from "../../../State/CartPractice/cartAction.js";
+// import {addItemToCart} from "../../../State/CartPractice/cartAction.js";
 
 let DisplayProducts = ()=>{
 
@@ -16,21 +16,20 @@ let DisplayProducts = ()=>{
     products && products.length == 0 ? dispatchToFetchProduct(fetchProducts()) : []
   },[])
 
-  let itemsInCart = useSelector((state) => state.CartReducerPractice.CartItems)
-  let dispatchAction = useDispatch();
+  // let itemsInCart = useSelector((state) => state.CartReducerPractice.CartItems)
+  // let dispatchAction = useDispatch();
 
-  let addItemToCartFnc = (product) => {
-    console.log(product);
-    dispatchAction(addItemToCart(product));
-  }
-  console.log(`itemsInCart: ${JSON.stringify(itemsInCart)}`);
+  // let addItemToCartFnc = (product) => {
+  //   console.log(product);
+  //   dispatchAction(addItemToCart(product));
+  // }
 
   return(
     <>
       {
         products && products.length > 0 ?
         products.map((productItem)=>{
-          return <ProductItemComponent addItemToCartFnc={addItemToCartFnc} product={productItem} _id={productItem._id} />
+          return <ProductItemComponent product={productItem} key={productItem._id} />
         })
         : <h4>No Products To Display</h4>
       }

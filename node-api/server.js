@@ -14,12 +14,15 @@ const userRoutes = require("./router/user-route")
 const studentApp = express();
 const studentRoutes = require("./router/student-route");
 
-const productAppPractice = express();
-const productRoutesPractice = require("./router/product-route-practice");
 
 const productApp = express() //created to load the request for admin/backend work
 const productRoutes = require("./router/product-route")
 
+const cartApp = express() 
+const cartRoutes = require("./router/cart-route");
+
+const productAppPractice = express();
+const productRoutesPractice = require("./router/product-route-practice");
 const cartAppPractice = express() 
 const cartRoutesPractice = require("./router/cart-route-practice")
 
@@ -49,6 +52,9 @@ productApp.use('/',productRoutes)
 
 app.use('/cartpractice', cartAppPractice)
 cartAppPractice.use('/',cartRoutesPractice)
+
+app.use('/cart', cartApp)
+cartApp.use('/',cartRoutes)
 
 app.listen(9000)
 

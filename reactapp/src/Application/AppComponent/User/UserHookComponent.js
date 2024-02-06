@@ -54,16 +54,16 @@ let UserHook = (props)=>{
   let sessionName = useRef(null)
   let todaysTopic = useRef(null)
 
-  let readFormData = (evt)=>{
+  // let readFormData = (evt)=>{
 
-    let user = {
-      userName : sessionName.current.value             
-    }
+  //   let user = {
+  //     userName : sessionName.current.value             
+  //   }
 
-    dispatchToStore(AddUserToStore(user))
+  //   dispatchToStore(AddUserToStore(user))
 
-    evt.preventDefault();
-  }
+  //   evt.preventDefault();
+  // }
 
   //shouldcomponentUpdate, componentDidMount
   //default it is shouldcomponentUpdate

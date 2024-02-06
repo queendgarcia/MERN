@@ -1,8 +1,16 @@
 import React, { useState } from "react";
+import { useDispatch} from "react-redux";
+import { addItemToCart } from "../../../State/Cart/cartAction";
 
-let ProductItemComponent = ({addItemToCartFnc,product})=>{
+let ProductItemComponent = ({product})=>{
 
   let [showHide, toggleShowHide] = useState(false)
+
+  let dispatchToAddProduct = useDispatch();
+
+  let addProductToCart = ( product )=>{
+    dispatchToAddProduct(addItemToCart(product))
+  }
 
   return(
     <ul className="product col-md-11 mx-3">
@@ -14,8 +22,8 @@ let ProductItemComponent = ({addItemToCartFnc,product})=>{
         <li>{product.desc}</li>
         <li>{product.rating}</li> 
 
-        {/* <button onClick={()=>console.log("Test")}>Add To Cart</button>  */}
-        <button onClick={() => addItemToCartFnc(product)}>Add To Cart</button> 
+        <button onClick={()=>{addProductToCart(product)}}>Add To Cart</button> 
+        {/* <button onClick={() => addItemToCartFnc(product)}>Add To Cart</button>  */}
       </ul>
       : 
       <></>
