@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import CartComponent from '../Cart/CartComponent'
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutComponent = () => {
   let [paymentDone, setPaymentDone] = useState(false);
   let loggedInUser = useSelector((state) => state.UserReducer.User)
+  let coupon = useSelector((state) => state.CouponReducer.Coupon)
   debugger;
   // let dispatchAction = useDispatch();
 
@@ -13,12 +15,19 @@ const CheckoutComponent = () => {
     setPaymentDone(true);
   }
 
+  let navigate = useNavigate();
+
+  let getDiscountCode = (evt)=>{
+    navigate('/coupon');
+    evt.preventDefault();
+  }
+
   return (
     <>
       {
         loggedInUser._id  ? 
           <>
-            { paymentDone ? <h2>Thankyou for the payment, your items under process!</h2>
+            { paymentDone ? <h2>Thank you for the payment, your items are in progress</h2>
               :
               <> 
                 <div className='user-details ml-3'>
@@ -27,6 +36,21 @@ const CheckoutComponent = () => {
                   <h5>Products will be delivered here: {loggedInUser.street}</h5>
                 </div>
                 <CartComponent readOnly={true} />
+                {
+                  coupon.code ? 
+                  <>
+                    <p className='m-3'>Coupon Code (10% discount): {coupon.code} </p>
+                  </>
+                  :
+                  <>
+                    <p className='m-3'>You can get a discount code in Coupon Page</p>
+                    <button className="m-3 btn btn-primary col-md-2" 
+                      onClick={getDiscountCode} >
+                      Get Discount Code
+                    </button>
+                  </>
+
+                }
                 <button className="m-3 btn btn-primary col-md-2" 
                   onClick={proceedToPayment} >
                   Proceed to Payment
@@ -38,36 +62,6 @@ const CheckoutComponent = () => {
       }
     </>
   )
-  // return (
-  //   <>
-  //     { itemsInCart && itemsInCart.length > 0 ? 
-  //       <div>
-  //         <table className='my-5 ml-3'>
-  //           <tr>
-  //             <th>Name</th>
-  //             <th>Price</th>
-  //             <th>Qty</th>
-  //             <th>Rating</th>
-  //           </tr>
-  //           { itemsInCart.map((productItem)=> {
-  //               return (
-  //                 <tr>  
-  //                   <td>{productItem.name}</td>
-  //                   <td>{productItem.price}</td>
-  //                   <td>{productItem.qty}</td>
-  //                   <td>{productItem.rating}</td>
-  //                 </tr>
-  //               )
-  //             })
-  //           }
-  //         </table>
-  //         <input type="button" className={"m-3 btn btn-primary col-md-2"} 
-  //             value={"Proceed to Payment"} />
-  //       </div>
-  //     : <h4>No Products To Display</h4>
-  //     }
-  //   </>
-  // )
 }
 
 export default CheckoutComponent

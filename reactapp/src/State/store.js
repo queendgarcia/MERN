@@ -7,6 +7,7 @@ import UserReducer from "./User/userReducer";
 import StudentReducer from "./Student/studentReducer"
 import ProductReducer from "./Product/productReducer";
 import CartReducer from "./Cart/cartReducer";
+import CouponReducer from "./Coupon/couponReducer";
 
 import CartReducerPractice from "./CartPractice/cartReducer";
 
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   UserReducer,
   StudentReducer,
   ProductReducer,
-  CartReducer
+  CartReducer,
+  CouponReducer
   // CartReducerPractice
   // UserReducer : UserReducer  // state.UserReducer.User.userName
 })

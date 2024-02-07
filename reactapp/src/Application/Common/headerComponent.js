@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux"; 
 
 let HeaderComponent = (props) => {
+  console.log(props)
   console.log("Rendering the header component");
   let userName = props.user && props.user.userName ? props.user.userName : "";
 
@@ -15,9 +16,17 @@ let HeaderComponent = (props) => {
       <div>
         <NavLink to="/home" className="button" activeclassname="success" >Home </NavLink>
         <NavLink to="/hook" className="button" activeclassname="success" >Login </NavLink>
-        <NavLink to="/product" className="button" activeclassname="success" >Product</NavLink>
         <NavLink to="/about" className="button" activeclassname="success" >About </NavLink>
-        <NavLink to="/cart" className="button" activeclassname="success" >Cart</NavLink>
+        {
+          props.user.userName ? 
+          <>
+            <NavLink NavLink to="/product" className="button" activeclassname="success" >Product</NavLink>
+            <NavLink to="/cart" className="button" activeclassname="success" >Cart</NavLink>
+            <NavLink to="/coupon" className="button" activeclassname="success" >Coupon</NavLink>
+          </>
+          :
+          <></>
+        }
       </div>            
     </div>
   )

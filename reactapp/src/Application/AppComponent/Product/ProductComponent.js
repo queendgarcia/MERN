@@ -12,6 +12,8 @@ let ProductComponent = (props) => {
   let rating = useRef(null)
 
   let product = useSelector((state)=>state.ProductReducer.Product)
+  let userLoggedIn = useSelector((state)=>state.UserReducer.User)
+  let isAdmin = userLoggedIn.userName == "admin" ? "" : "d-none";
 
   let dispatchProduct = useDispatch();
 
@@ -39,37 +41,38 @@ let ProductComponent = (props) => {
   return(
     <>
       <h1 className="col-md-12">Product component</h1>
+      <div className={isAdmin}>
+        <form className={"form componentClass"}>
+          <div className="form col-md-8">
+            <div className="col-md-12">
+              <b>Product Name</b>
+              <input type="text" className="form-control col-md-6 name" ref={name} maxLength={25} 
+              placeholder="Product Name" />
+            </div>
+            <div className="col-md-12">
+              <b>Price </b>
+              <input type="number" className="form-control col-md-6" ref={price} 
+              placeholder="Product Price" />
+            </div>
 
-      <form className={"form componentClass"}>
-        <div className="form col-md-8">
-          <div className="col-md-12">
-            <b>Product Name</b>
-            <input type="text" className="form-control col-md-6 name" ref={name} maxLength={25} 
-            placeholder="Product Name" />
-          </div>
-          <div className="col-md-12">
-            <b>Price </b>
-            <input type="number" className="form-control col-md-6" ref={price} 
-            placeholder="Product Price" />
-          </div>
+            <div className="col-md-12">
+              <b>Description </b>
+              <input type="text" className="form-control col-md-6" ref={desc} 
+                placeholder="Please Describe the product"  />
+            </div>
 
-          <div className="col-md-12">
-            <b>Description </b>
-            <input type="text" className="form-control col-md-6" ref={desc} 
-              placeholder="Please Describe the product"  />
-          </div>
+            <div className="col-md-12">
+              <b>Ratings </b>
+              <input type="text" className="form-control col-md-6" ref={rating} 
+              placeholder="Ratings" />
+            </div>
 
-          <div className="col-md-12">
-            <b>Ratings </b>
-            <input type="text" className="form-control col-md-6" ref={rating} 
-            placeholder="Ratings" />
+            <input type="button" className={"form-control btn btn-primary col-md-3"} 
+              value={"Save Product"} 
+              onClick={saveProductClick}/>
           </div>
-
-          <input type="button" className={"form-control btn btn-primary col-md-3"} 
-            value={"Save Product"} 
-            onClick={saveProductClick}/>
-        </div>
-      </form>
+        </form>
+      </div>
       <hr/>
       <DisplayProducts />
     </>

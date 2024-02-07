@@ -6,9 +6,10 @@ import CartSummary from "./CartSummary";
 import { saveCartToDb } from "../../../State/Cart/cartAction";
 
 let CartComponent = (props)=>{
-  debugger;
   let cartList = useSelector((state)=>state.CartReducer)
   let user = useSelector((state)=>state.UserReducer.User)
+  let coupon = useSelector((state) => state.CouponReducer.Coupon)
+  debugger;
 
   let recalculate = (cartItems)=>{
     let amount = 0, count = 0;
