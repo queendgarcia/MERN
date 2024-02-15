@@ -3167,3 +3167,8 @@ select.stack {
 .item-info {
   background-color: aliceblue;
 }
+
+.display-right {
+  display: flex;
+  justify-content: flex-end;
+}

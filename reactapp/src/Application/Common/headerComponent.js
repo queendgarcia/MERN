@@ -1,18 +1,32 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { connect } from "react-redux"; 
+import { connect, useDispatch } from "react-redux"; 
+
+import { RemoveUserFromStore } from "../../State/User/userAction";
 
 let HeaderComponent = (props) => {
   console.log(props)
   console.log("Rendering the header component");
   let userName = props.user && props.user.userName ? props.user.userName : "";
 
+  let dispatchAction = useDispatch()
+
+  let LogoutUser = () => {
+    dispatchAction(RemoveUserFromStore())
+  }
+
   return (
     <div className="col-md-12">
       Hi <b>{userName +", "}</b> Welcome to SynergisticIT Shopping Cart!!!
       <br/> 
       {userName == "" ?<b> Please Login or SignUp to see other features</b>:""}
-    
+      {
+        props.user.userName ? 
+        <div className="display-right">
+          <NavLink to="/home" onClick={()=>LogoutUser()} className="button" activeclassname="success" >Logout</NavLink>
+        </div>
+        : <></>
+      }
       <div>
         <NavLink to="/home" className="button" activeclassname="success" >Home </NavLink>
         <NavLink to="/hook" className="button" activeclassname="success" >Login </NavLink>

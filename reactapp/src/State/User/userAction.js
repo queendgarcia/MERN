@@ -11,6 +11,19 @@ export const AddUserToStore = (newUser)=>{
 	}
 }
 
+export const RemoveUserFromStore = (user) => {
+	return {
+		type: ActionTypes.REMOVE_USER_FROM_STORE,
+		payload: {
+			_id: "",
+			userName: "",
+			password: "",
+			street: "",
+			mobile: 0
+		}
+	}
+}
+
 // server call
 export const SaveUserToDB = (newUser)=>{
 	return (dispatch)=>{

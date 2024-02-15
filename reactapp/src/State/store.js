@@ -10,6 +10,7 @@ import CartReducer from "./Cart/cartReducer";
 import CouponReducer from "./Coupon/couponReducer";
 import RecentOrdersReducer from "./RecentOrders/recentOrdersReducer";
 import CancelledOrdersReducer from "./CancelledOrders/cancelledOrdersReducer";
+import ItemReviewsReducer from "./Reviews/itemReviewsReducer";
 
 import CartReducerPractice from "./CartPractice/cartReducer";
 
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   CartReducer,
   CouponReducer,
   RecentOrdersReducer,
-  CancelledOrdersReducer
+  CancelledOrdersReducer,
+  ItemReviewsReducer
   // CartReducerPractice
   // UserReducer : UserReducer  // state.UserReducer.User.userName
 })

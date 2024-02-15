@@ -15,11 +15,12 @@ let UserReducer = (state = Initial_State, action) => {
   //switch case logice to read action type and return new state / updated state
 
   switch (action.type) {
-      case ActionTypes.AddUserToStore:
+      case ActionTypes.AddUserToStore :
           //...state : {User, Product ...etc}
           //returning all other states as it is but updating User using payload
-          return {...state, User : action.payload}
-
+        return {...state, User : action.payload}
+      case ActionTypes.REMOVE_USER_FROM_STORE :  
+        return {...state, User: action.payload}
       default:
           return state
   }

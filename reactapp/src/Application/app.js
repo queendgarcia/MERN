@@ -19,6 +19,7 @@ import CheckoutComponent from "./AppComponent/Checkout/CheckoutComponent";
 import CouponComponent from "./AppComponent/Coupon/CouponComponent";
 import RecentOrdersComponent from "./AppComponent/RecentOrders/RecentOrdersComponent";
 import CancelledOrdersComponent from "./AppComponent/RecentOrders/CancelledOrdersComponent";
+import ReviewComponent from "./AppComponent/Review/ReviewComponent";
 
 // import Student from "./AppComponent/Student/StudentContainer";
 // import ProductComponentPractice from "./AppComponent/Product/ProductComponentPractice";
@@ -62,6 +63,7 @@ export default class ApplicationComponent extends Component {
             <Route path="/coupon" element={<CouponComponent />} />
             <Route path="/orders" element={<RecentOrdersComponent />} />
             <Route path="/cancelled-orders" element={<CancelledOrdersComponent />} />
+            <Route path="/reviews" element={<ReviewComponent />} />
             {/* <Route path="/student" element={<Student  />} /> */}
             {/* <Route path="/product-practice" element={<ProductComponentPractice />} /> */}
             {/* <Route path="/cart" element={<CartComponentPractice />} /> */}

@@ -1,15 +1,25 @@
 import React, { useState } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addItemToCart } from "../../../State/Cart/cartAction";
+import { getReviews } from "../../../State/Reviews/itemReviewsAction";
 
 let ProductItemComponent = ({product})=>{
 
   let [showHide, toggleShowHide] = useState(false)
 
-  let dispatchToAddProduct = useDispatch();
+  let dispatchAction = useDispatch();
 
   let addProductToCart = ( product )=>{
-    dispatchToAddProduct(addItemToCart(product))
+    dispatchAction(addItemToCart(product))
+  }
+  
+  let navigate = useNavigate();
+
+  let goToItemReviews = (productId) => {
+    console.log("go to item reviews " + productId)
+    dispatchAction(getReviews(productId))
+    navigate(`/reviews?product=${productId}`)
   }
 
   return(
@@ -22,8 +32,8 @@ let ProductItemComponent = ({product})=>{
         <li>{product.desc}</li>
         <li>{product.rating}</li> 
 
-        <button onClick={()=>{addProductToCart(product)}}>Add To Cart</button> 
-        {/* <button onClick={() => addItemToCartFnc(product)}>Add To Cart</button>  */}
+        <button onClick={() => addProductToCart(product)}>Add To Cart</button> 
+        <button onClick={() => goToItemReviews(product._id)}>Go to Reviews</button> 
       </ul>
       : 
       <></>

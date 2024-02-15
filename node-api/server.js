@@ -22,7 +22,10 @@ const cartApp = express()
 const cartRoutes = require("./router/cart-route");
 
 const recentOrdersApp = express();
-const recentOrdersRoute = require("./router/recent-orders-route");
+const recentOrdersRoutes = require("./router/recent-orders-route");
+
+const itemReviewsApp = express();
+const itemReviewsRoutes = require("./router/item-review-route");
 
 const productAppPractice = express();
 const productRoutesPractice = require("./router/product-route-practice");
@@ -60,7 +63,10 @@ app.use('/cart', cartApp)
 cartApp.use('/',cartRoutes)
 
 app.use('/orders', recentOrdersApp)
-recentOrdersApp.use('/', recentOrdersRoute)
+recentOrdersApp.use('/', recentOrdersRoutes)
+
+app.use('/reviews', itemReviewsApp)
+itemReviewsApp.use('/', itemReviewsRoutes)
 
 app.listen(9000)
 
