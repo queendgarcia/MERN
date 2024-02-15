@@ -2,16 +2,24 @@ import React, {useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import CartComponent from '../Cart/CartComponent'
 import { useNavigate } from 'react-router-dom';
+import { saveOrder, fetchOrders } from '../../../State/RecentOrders/recentOrdersAction';
 
 const CheckoutComponent = () => {
   let [paymentDone, setPaymentDone] = useState(false);
   let loggedInUser = useSelector((state) => state.UserReducer.User)
   let coupon = useSelector((state) => state.CouponReducer.Coupon)
+  let cart = useSelector((state)=>state.CartReducer)
   debugger;
-  // let dispatchAction = useDispatch();
+  let dispatchAction = useDispatch();
 
   let proceedToPayment = () => {
     console.log("proceedToPayment");
+    let order = {
+      userId: loggedInUser._id,
+      cart
+    }
+    dispatchAction(saveOrder(order));
+    // dispatchAction(fetchOrders(loggedInUser._id))
     setPaymentDone(true);
   }
 

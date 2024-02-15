@@ -23,6 +23,8 @@ let HeaderComponent = (props) => {
             <NavLink NavLink to="/product" className="button" activeclassname="success" >Product</NavLink>
             <NavLink to="/cart" className="button" activeclassname="success" >Cart</NavLink>
             <NavLink to="/coupon" className="button" activeclassname="success" >Coupon</NavLink>
+            <NavLink to="/orders" className="button" activeclassname="success" >Orders</NavLink>
+            <NavLink to="/cancelled-orders" className="button" activeclassname="success" >Cancelled Orders</NavLink>
           </>
           :
           <></>

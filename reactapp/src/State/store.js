@@ -8,6 +8,8 @@ import StudentReducer from "./Student/studentReducer"
 import ProductReducer from "./Product/productReducer";
 import CartReducer from "./Cart/cartReducer";
 import CouponReducer from "./Coupon/couponReducer";
+import RecentOrdersReducer from "./RecentOrders/recentOrdersReducer";
+import CancelledOrdersReducer from "./CancelledOrders/cancelledOrdersReducer";
 
 import CartReducerPractice from "./CartPractice/cartReducer";
 
@@ -17,7 +19,9 @@ const rootReducer = combineReducers({
   StudentReducer,
   ProductReducer,
   CartReducer,
-  CouponReducer
+  CouponReducer,
+  RecentOrdersReducer,
+  CancelledOrdersReducer
   // CartReducerPractice
   // UserReducer : UserReducer  // state.UserReducer.User.userName
 })
