@@ -11,6 +11,7 @@ import CouponReducer from "./Coupon/couponReducer";
 import RecentOrdersReducer from "./RecentOrders/recentOrdersReducer";
 import CancelledOrdersReducer from "./CancelledOrders/cancelledOrdersReducer";
 import ItemReviewsReducer from "./Reviews/itemReviewsReducer";
+import NotificationsReducer from "./Notifications/notificationsReducer";
 
 import CartReducerPractice from "./CartPractice/cartReducer";
 
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
   CouponReducer,
   RecentOrdersReducer,
   CancelledOrdersReducer,
-  ItemReviewsReducer
+  ItemReviewsReducer,
+  NotificationsReducer
   // CartReducerPractice
   // UserReducer : UserReducer  // state.UserReducer.User.userName
 })

@@ -1,17 +1,21 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addItemToCart } from "../../../State/Cart/cartAction";
 import { getReviews } from "../../../State/Reviews/itemReviewsAction";
+import { addNotificationToStore } from "../../../State/Notifications/notificationsAction";
 
 let ProductItemComponent = ({product})=>{
 
   let [showHide, toggleShowHide] = useState(false)
 
   let dispatchAction = useDispatch();
+  let cartList = useSelector((state)=>state.CartReducer)
 
   let addProductToCart = ( product )=>{
     dispatchAction(addItemToCart(product))
+    let notificationMessage = `Product (${product.name}) has been added. There are ${cartList.length+1} unique products in Cart.`;
+    dispatchAction(addNotificationToStore(notificationMessage))
   }
   
   let navigate = useNavigate();

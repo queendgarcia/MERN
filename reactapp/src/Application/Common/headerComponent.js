@@ -1,14 +1,15 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { connect, useDispatch } from "react-redux"; 
+import React, {useState} from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { connect, useDispatch, useSelector } from "react-redux"; 
 
 import { RemoveUserFromStore } from "../../State/User/userAction";
+import NotificationComponent from "../AppComponent/Notification/NotificationComponent";
 
 let HeaderComponent = (props) => {
   console.log(props)
   console.log("Rendering the header component");
   let userName = props.user && props.user.userName ? props.user.userName : "";
-
+  let notifications = useSelector((state) => state.NotificationsReducer)
   let dispatchAction = useDispatch()
 
   let LogoutUser = () => {
@@ -23,6 +24,7 @@ let HeaderComponent = (props) => {
       {
         props.user.userName ? 
         <div className="display-right">
+          <NotificationComponent />
           <NavLink to="/home" onClick={()=>LogoutUser()} className="button" activeclassname="success" >Logout</NavLink>
         </div>
         : <></>
@@ -78,5 +80,3 @@ export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);
   <h3>Name - {props.name}</h3>
   <button onClick={() => props.getChildData("from child component")}>Pass to Parent</button>
 </div> */}
-
-// export default HeaderComponent;

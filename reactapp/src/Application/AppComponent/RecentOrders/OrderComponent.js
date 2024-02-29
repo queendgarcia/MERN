@@ -3,7 +3,7 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { cancelOrder } from '../../../State/RecentOrders/recentOrdersAction';
 import { emptyTheCart, addItemToCart } from '../../../State/Cart/cartAction';
-
+import { addNotificationToStore } from '../../../State/Notifications/notificationsAction';
 import { Modal } from 'react-bootstrap';
 import ReviewModal from '../Review/ReviewModal';
 
@@ -24,6 +24,8 @@ const OrderComponent = (props) => {
   let cancelOrderFnc = (order) => {
     console.log("order number to cancel: " + order);
     dispatchAction(cancelOrder(order));
+    let notificationMessage = `Order No. ${order._id} has been cancelled`;
+    dispatchAction(addNotificationToStore(notificationMessage))
   }
 
   let openModal =() => {
